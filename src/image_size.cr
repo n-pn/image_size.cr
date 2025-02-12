@@ -59,7 +59,7 @@ struct ImageSize
     self.new w, h
   end
 
-  private def self.stb_load(bytes : Bytes)
+  private def self.stb_load(bytes : Bytes, &)
     ptr = LibStbi.stbi_load_from_memory bytes, bytes.size,
       out w, out h, out comp, 0
     if ptr.null?
@@ -78,7 +78,7 @@ struct ImageSize
     out_bytes = Bytes.new 0
     self.stb_load bytes do |size, data|
       buffer = Bytes.new target.width * target.height * size.components
-      LibStbi.stbir_resize_uint8 data, size.width, size.height,
+      LibStbi.stbir_resize_uint8_linear data, size.width, size.height,
         0, buffer, target.width, target.height, 0, size.components
 
       len = LibStbi.stbi_write_jpg_memory target.width, target.height,
