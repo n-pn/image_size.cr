@@ -8,7 +8,7 @@ stb_image.h:
 	wget https://raw.githubusercontent.com/nothings/stb/master/stb_image.h
 
 stb_image_resize.h:
-	wget https://raw.githubusercontent.com/nothings/stb/master/stb_image_resize.h
+	wget https://raw.githubusercontent.com/nothings/stb/master/stb_image_resize2.h
 
 stb_image_write.h:
 	wget https://raw.githubusercontent.com/nothings/stb/master/stb_image_write.h
